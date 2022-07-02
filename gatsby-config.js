@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Ozeruha Pro",
+    description: "Будівельні послуги в м. Києв та Київській області",
   },
   plugins: [
     "gatsby-transformer-sharp",

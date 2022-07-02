@@ -56,6 +56,7 @@ export const pageQuery = graphql`
           raw
         }
         title
+        instagram
         heroImage: image {
           gatsbyImageData(
             layout: CONSTRAINED
