@@ -11,8 +11,8 @@ const Navigation = () => (
     </Link>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <Link to="/" activeClassName="active">
-          Головна
+        <Link to="/screed-service" activeClassName="active">
+          Стяжка підлоги
         </Link>
       </li>
       <li className={styles.navigationItem}>
