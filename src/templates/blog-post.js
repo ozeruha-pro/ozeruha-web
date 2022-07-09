@@ -37,8 +37,8 @@ class BlogPostTemplate extends React.Component {
         <div className={styles.container}>
           <span className={styles.meta}>
             {post.author?.name} &middot;{' '}
-            <time dateTime={post.rawDate}>{post.publishDate}</time> –{' '}
-            {timeToRead} minute read
+            <time dateTime={post.rawDate}>{new Date(post.publishDate).toLocaleDateString()}</time> –{' '}
+            {timeToRead} хвилини читання
           </span>
           <div className={styles.article}>
             <div className={styles.body}>
@@ -86,8 +86,7 @@ export const pageQuery = graphql`
       author {
         name
       }
-      publishDate(formatString: "MMMM Do, YYYY")
-      rawDate: publishDate
+      publishDate
       heroImage {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
         resize(height: 630, width: 1200) {
