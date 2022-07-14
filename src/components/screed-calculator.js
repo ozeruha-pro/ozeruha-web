@@ -149,18 +149,16 @@ const ScreedCalculator = () => {
     setWorkPriceM2(workPrice)
     setWorkPriceSum(square*workPrice)
     setMaterialTableData(materialPriceData)
-    setMaterialPriceSum(materialPriceSum)
+    setMaterialPriceSum(roundTwoDecimal(materialPriceSum))
     setMaterialPriceM2(roundTwoDecimal(materialPriceSum/square))
   }, [square, height])
-
-
 
   return (
     <div>
       <Divider orientation='left'>Калькулятор</Divider>
-      <Space>
-        <InputNumber addonBefore='Площа' addonAfter='м2' value={square} onChange={setSquare} />
-        <InputNumber addonBefore='Товщина' addonAfter='см' value={height} onChange={setHeight} />
+      <Space align="center" wrap>
+        <InputNumber size="large" style={{ maxWidth: '300px' }} stringMode addonBefore='Площа' addonAfter='м2' value={square} onChange={setSquare} />
+        <InputNumber size="large" style={{ maxWidth: '300px' }} addonBefore='Товщина' addonAfter='см' value={height} onChange={setHeight} max={15} min={6} />
       </Space>
       <br /> <br />
       <Row gutter={16}>
