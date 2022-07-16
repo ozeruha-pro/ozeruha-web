@@ -7,7 +7,7 @@ export const InputNumbers = ({ square, setSquare, height, setHeight, }) => {
       <InputNumber
         size='large'
         style={{ maxWidth: '300px' }}
-        addonBefore='Площа'
+        addonBefore='Площа&nbsp;&nbsp;&nbsp;'
         addonAfter='м2'
         value={square}
         onChange={setSquare}

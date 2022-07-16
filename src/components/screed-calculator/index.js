@@ -4,7 +4,6 @@ import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
 import { roundTwoDecimal } from './utils'
 import { MaterialAmountTable } from './material-amount-table'
-import { CalculatorOutlined } from '@ant-design/icons'
 
 const MATERIALS_PRICE = {
   SAND: {
@@ -71,7 +70,7 @@ export const ScreedCalculator = () => {
     const materialPriceSum = Object.values(MATERIALS_PRICE).reduce((sum, item) => sum + item.amount(square, height) * item.price, 0)
 
     setWorkPriceM2(workPrice)
-    setWorkPriceSum(square * workPrice)
+    setWorkPriceSum(roundTwoDecimal(square * workPrice))
     setMaterialPriceSum(roundTwoDecimal(materialPriceSum))
     setMaterialPriceM2(roundTwoDecimal(materialPriceSum / square))
   }, [square, height])
@@ -98,20 +97,20 @@ export const ScreedCalculator = () => {
       <br />
       <br />
       <Row gutter={16}>
-        <Col span={12}>
+        <Col span={12} style={{marginTop: '16px'}}>
           <Statistic title='Робота' value={workPriceSum} suffix='грн' />
         </Col>
-        <Col span={12}>
+        <Col span={12} style={{marginTop: '16px'}}>
           <Statistic title='Робота за м2' value={workPriceM2} suffix='грн/м2' />
         </Col>
-        <Col span={12}>
+        <Col span={12} style={{marginTop: '16px'}}>
           <Statistic title='Матеріали' value={materialPriceSum} suffix='грн/м2' />
         </Col>
-        <Col span={12}>
+        <Col span={12} style={{marginTop: '16px'}}>
           <Statistic title='Матеріали за м2' value={materialPriceM2} suffix='грн/м2' />
         </Col>
-        <Col span={12}>
-          <Statistic title='Ціна за роботу та матеріали за м2' value={materialPriceM2 + workPriceM2} suffix='грн/м2' />
+        <Col span={12} style={{marginTop: '16px'}}>
+          <Statistic title='Ціна за роботу та матеріали за м2' value={roundTwoDecimal(materialPriceM2 + workPriceM2)} suffix='грн/м2' />
         </Col>
       </Row>
     </div>,
