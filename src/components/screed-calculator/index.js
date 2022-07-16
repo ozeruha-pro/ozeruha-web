@@ -1,26 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { InputNumber, Space, Table, Button, Col, Row, Statistic, Card } from 'antd'
+import { Table, Button, Col, Row, Statistic, Card } from 'antd'
+import { MaterialPriceTable } from './material-price-table'
+import { InputNumbers } from './input-numbers'
 
 const roundTwoDecimal = num => Math.round(num * 100) / 100
 
-const materialColumns = [
-  {
-    title: 'Назва',
-    dataIndex: 'name',
-    key: 'name',
-    render: (text) => <b>{text}</b>,
-  },
-  {
-    title: 'Ціна',
-    dataIndex: 'price',
-    key: 'price',
-  },
-  {
-    title: 'Одиниця кількості',
-    dataIndex: 'unit',
-    key: 'unit',
-  },
-]
 const materialCalculationColumns = [
   {
     title: 'Назва',
@@ -78,8 +62,7 @@ const MATERIALS_PRICE = {
   },
 }
 
-
-const ScreedCalculator = () => {
+export const ScreedCalculator = () => {
   const [square, setSquare] = useState(118)
   const [height, setHeight] = useState(8)
 
@@ -170,29 +153,17 @@ const ScreedCalculator = () => {
 
   const contentList = {
     tab1: <div>
-      <Space align='center' wrap>
-        <InputNumber
-          size='large'
-          style={{ maxWidth: '300px' }}
-          stringMode
-          addonBefore='Площа'
-          addonAfter='м2'
-          value={square} onChange={setSquare}
-        />
-        <InputNumber
-          size='large'
-          style={{ maxWidth: '300px' }}
-          addonBefore='Товщина'
-          addonAfter='см'
-          value={height}
-          onChange={setHeight} max={15} min={6}
-        />
-      </Space>
+      <InputNumbers
+        square={square}
+        setSquare={setSquare}
+        height={height}
+        setHeight={setHeight}
+      />
       <br />
       <br />
       <Row gutter={16}>
         <Col span={12}>
-          <Statistic title='Робота' value={workPriceSum} suffix='грн'  />
+          <Statistic title='Робота' value={workPriceSum} suffix='грн' />
         </Col>
         <Col span={12}>
           <Statistic title='Робота за м2' value={workPriceM2} suffix='грн/м2' />
@@ -210,11 +181,10 @@ const ScreedCalculator = () => {
     </div>,
     tab2: <div>
       <Table columns={materialCalculationColumns} dataSource={materialPriceTableData} pagination={false}
-             showHeader={false} bordered title={() => `Матеріали необхідні для вашої стяжки ${square} м2 товщиною ${height} см`} />
+             showHeader={false} bordered
+             title={() => `Матеріали необхідні для вашої стяжки ${square} м2 товщиною ${height} см`} />
       <br /><br />
-      <Table columns={materialColumns} dataSource={Object.values(MATERIALS_PRICE)} pagination={false} showHeader={false}
-             bordered
-             title={() => 'Ціна на матеріали'} />
+      <MaterialPriceTable materialPriceObj={MATERIALS_PRICE} />
     </div>,
   }
 
@@ -240,5 +210,3 @@ const ScreedCalculator = () => {
     </>
   )
 }
-
-export default ScreedCalculator

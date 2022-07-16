@@ -8,7 +8,7 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
-import ScreedCalculator from '../components/screed-calculator'
+import  { ScreedCalculator } from '../components/screed-calculator'
 
 
 const { Step } = Steps;
