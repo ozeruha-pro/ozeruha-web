@@ -13,11 +13,14 @@ import  { ScreedCalculator } from '../components/screed-calculator'
 const { Step } = Steps;
 
 const contentStyle = {
-  height: '160px',
   color: '#fff',
-  lineHeight: '160px',
   textAlign: 'center',
   background: '#364d79',
+  padding: '8px 16px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '300px'
 };
 
 
@@ -28,12 +31,12 @@ class ScreedServiceIndex extends React.Component {
       <Layout location={this.props.location}>
         <Seo title="Стяжка підлоги" />
 
-        <PageHeader
-          title="Стяжка підлоги"
-        />
         <Container>
-
-          <Carousel autoplay>
+          <PageHeader
+            title="Стяжка підлоги"
+            style={{ paddingLeft: 0}}
+          />
+          <Carousel autoplay >
             <div>
               <h3 style={contentStyle}>Напівсуха стяжка підлоги
                 ідеально рівна підлога</h3>

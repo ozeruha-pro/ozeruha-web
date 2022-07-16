@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {  Button, Col, Row, Statistic, Card } from 'antd'
+import {  Button, Row, Statistic, Card } from 'antd'
 import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
 import { roundTwoDecimal } from './utils'
@@ -97,11 +97,11 @@ export const ScreedCalculator = () => {
       <br />
       <br />
       <Row>
-          <Statistic title='Робота' value={workPriceSum} suffix='грн' style={{ margin: '16px' }} />
-          <Statistic title='Робота за м2' value={workPriceM2} suffix='грн/м2' style={{ margin: '16px' }} />
-          <Statistic title='Матеріали' value={materialPriceSum} suffix='грн/м2' style={{margin: '16px' }} />
-          <Statistic title='Матеріали за м2' value={materialPriceM2} suffix='грн/м2' style={{ margin: '16px' }}/>
-          <Statistic title='Ціна за роботу та матеріали за м2' value={roundTwoDecimal(materialPriceM2 + workPriceM2)} suffix='грн/м2' style={{ margin: '16px' }} />
+          <Statistic title='Робота' value={workPriceSum} suffix='грн' style={{ margin: '16px 16px 16px 4px' }} />
+          <Statistic title='Робота за м2' value={workPriceM2} suffix='грн/м2' style={{ margin: '16px 16px 16px 4px' }} />
+          <Statistic title='Матеріали' value={materialPriceSum} suffix='грн/м2' style={{ margin: '16px 16px 16px 4px' }} />
+          <Statistic title='Матеріали за м2' value={materialPriceM2} suffix='грн/м2' style={{ margin: '16px 16px 16px 4px' }}/>
+          <Statistic title='Ціна за роботу та матеріали за м2' value={roundTwoDecimal(materialPriceM2 + workPriceM2)} suffix='грн/м2' style={{ margin: '16px 16px 16px 4px' }} />
       </Row>
     </div>,
     tab2: <div>
@@ -127,7 +127,7 @@ export const ScreedCalculator = () => {
       <Button type='primary' key='console'>
         Відправити розрахунки прорабу
       </Button>
-      <br /> <br />
+      <br /> <br /> <br />
     </>
   )
 }
