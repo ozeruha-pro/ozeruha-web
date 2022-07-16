@@ -1,12 +1,11 @@
 import React from 'react'
 
 import { SmileOutlined, SolutionOutlined, PhoneOutlined, BuildOutlined } from '@ant-design/icons';
-import { Steps, Carousel } from 'antd';
+import { Steps, Carousel, PageHeader } from 'antd';
 
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Container from '../components/container'
 import  { ScreedCalculator } from '../components/screed-calculator'
 
@@ -28,9 +27,12 @@ class ScreedServiceIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Seo title="Стяжка підлоги" />
-        <Hero title="Стяжка підлоги" />
 
+        <PageHeader
+          title="Стяжка підлоги"
+        />
         <Container>
+
           <Carousel autoplay>
             <div>
               <h3 style={contentStyle}>Напівсуха стяжка підлоги

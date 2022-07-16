@@ -96,22 +96,12 @@ export const ScreedCalculator = () => {
       />
       <br />
       <br />
-      <Row gutter={16}>
-        <Col span={12} style={{marginTop: '16px'}}>
-          <Statistic title='Робота' value={workPriceSum} suffix='грн' />
-        </Col>
-        <Col span={12} style={{marginTop: '16px'}}>
-          <Statistic title='Робота за м2' value={workPriceM2} suffix='грн/м2' />
-        </Col>
-        <Col span={12} style={{marginTop: '16px'}}>
-          <Statistic title='Матеріали' value={materialPriceSum} suffix='грн/м2' />
-        </Col>
-        <Col span={12} style={{marginTop: '16px'}}>
-          <Statistic title='Матеріали за м2' value={materialPriceM2} suffix='грн/м2' />
-        </Col>
-        <Col span={12} style={{marginTop: '16px'}}>
-          <Statistic title='Ціна за роботу та матеріали за м2' value={roundTwoDecimal(materialPriceM2 + workPriceM2)} suffix='грн/м2' />
-        </Col>
+      <Row>
+          <Statistic title='Робота' value={workPriceSum} suffix='грн' style={{ margin: '16px' }} />
+          <Statistic title='Робота за м2' value={workPriceM2} suffix='грн/м2' style={{ margin: '16px' }} />
+          <Statistic title='Матеріали' value={materialPriceSum} suffix='грн/м2' style={{margin: '16px' }} />
+          <Statistic title='Матеріали за м2' value={materialPriceM2} suffix='грн/м2' style={{ margin: '16px' }}/>
+          <Statistic title='Ціна за роботу та матеріали за м2' value={roundTwoDecimal(materialPriceM2 + workPriceM2)} suffix='грн/м2' style={{ margin: '16px' }} />
       </Row>
     </div>,
     tab2: <div>
