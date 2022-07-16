@@ -4,6 +4,7 @@ import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
 import { roundTwoDecimal } from './utils'
 import { MaterialAmountTable } from './material-amount-table'
+import { CalculatorOutlined } from '@ant-design/icons'
 
 const MATERIALS_PRICE = {
   SAND: {
@@ -78,7 +79,7 @@ export const ScreedCalculator = () => {
   const tabList = [
     {
       key: 'tab1',
-      tab: 'Ціна',
+      tab: 'Калькулятор ціни',
     },
     {
       key: 'tab2',
@@ -125,8 +126,6 @@ export const ScreedCalculator = () => {
     <>
       <Card
         style={{ width: '100%' }}
-        title='Калькулятор'
-        extra={<a href='#'>Більше?</a>}
         tabList={tabList}
         activeTabKey={activeTabKey1}
         onTabChange={key => {
