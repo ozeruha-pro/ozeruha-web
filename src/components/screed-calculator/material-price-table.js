@@ -1,23 +1,17 @@
 import React from 'react'
 import { Table } from 'antd'
 
-
-const materialColumns = [
+const columns = [
   {
     title: 'Назва',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <b>{text}</b>,
+    render: (text) => text,
   },
   {
     title: 'Ціна',
     dataIndex: 'price',
     key: 'price',
-  },
-  {
-    title: 'Одиниця кількості',
-    dataIndex: 'unit',
-    key: 'unit',
   },
 ]
 
@@ -25,14 +19,13 @@ export const MaterialPriceTable = ({ materialPriceObj }) => {
   const data = Object.values(materialPriceObj).map((item, i) => ({
     key: String(i),
     name: item.name,
-    price: item.price,
-    unit: item.unit,
+    price:  `${item.price} грн/${item.unit}`,
 
   }))
   return (
     <Table
-      title={() => 'Ціна на матеріали'}
-      columns={materialColumns}
+      title={() => <b>{`Ціна на матеріали`}</b>}
+      columns={columns}
       dataSource={data}
       pagination={false}
       showHeader={false}

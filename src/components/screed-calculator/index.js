@@ -1,64 +1,52 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Button, Col, Row, Statistic, Card } from 'antd'
+import {  Button, Col, Row, Statistic, Card } from 'antd'
 import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
-
-const roundTwoDecimal = num => Math.round(num * 100) / 100
-
-const materialCalculationColumns = [
-  {
-    title: 'Назва',
-    dataIndex: 'name',
-    key: 'name',
-    render: (text) => <b>{text}</b>,
-  },
-  {
-    title: 'Кількість',
-    dataIndex: 'amount',
-    key: 'amount',
-  },
-  {
-    title: 'Одиниця кількості',
-    dataIndex: 'unit',
-    key: 'unit',
-  },
-  {
-    title: 'Ціна',
-    dataIndex: 'price',
-    key: 'price',
-  },
-  {
-    title: 'Валюта',
-    dataIndex: 'currency',
-    key: 'currency',
-  },
-]
+import { roundTwoDecimal } from './utils'
+import { MaterialAmountTable } from './material-amount-table'
 
 const MATERIALS_PRICE = {
   SAND: {
     name: 'Пісок',
     price: 400,
-    unit: 'грн/т',
+    unit: 'т',
+    amountUnit: 'т',
+    amount: (square, height) => roundTwoDecimal((square * height / 100) * 1.6),
   },
   CEMENT: {
     name: 'Цемент',
     price: 122.3,
-    unit: 'грн/шт',
+    unit: 'шт',
+    amountUnit: 'т',
+    amount: (square, height) =>  roundTwoDecimal((square * height * 0.01 / 0.17) * 1.05),
   },
   FIBER: {
     name: 'Фібра',
     price: 200,
-    unit: 'грн/уп',
+    unit: 'уп',
+    amountUnit: 'т',
+    amount: (square) =>  roundTwoDecimal(square / 500),
   },
   SOFTENER: {
     name: 'Пластифікатор',
     price: 350,
-    unit: 'грн/кан',
+    unit: 'кан',
+    amountUnit: 'т',
+    amount: (square) =>  roundTwoDecimal(square / 300),
   },
   DAMPER_TAPE: {
     name: 'Демпферна лєнта',
     price: 460,
-    unit: 'грн/рул',
+    unit: 'рул',
+    amountUnit: 'т',
+    amount: (square) =>  roundTwoDecimal(square / 300),
+  },
+  DELIVERY: {
+    name: 'Доставка',
+    price: 700,
+    unit: 'шт',
+    amountUnit: 'шт',
+    amount: (square) =>  roundTwoDecimal((square / 100)),
   },
 }
 
@@ -71,8 +59,6 @@ export const ScreedCalculator = () => {
   const [materialPriceSum, setMaterialPriceSum] = useState()
   const [materialPriceM2, setMaterialPriceM2] = useState()
 
-  const [materialPriceTableData, setMaterialTableData] = useState([])
-
   const [activeTabKey1, setActiveTabKey1] = useState('tab1')
 
   const onTab1Change = (key) => {
@@ -81,61 +67,10 @@ export const ScreedCalculator = () => {
 
   useEffect(() => {
     const workPrice = workPriceM2
-    const materialPriceData = [
-      {
-        key: '1',
-        name: MATERIALS_PRICE.SAND.name,
-        amount: roundTwoDecimal((square * height / 100) * 1.6),
-        price: roundTwoDecimal((square * height / 100) * 1.6 * MATERIALS_PRICE.SAND.price),
-        unit: 'т',
-        currency: 'грн',
-      },
-      {
-        key: '2',
-        name: MATERIALS_PRICE.CEMENT.name,
-        amount: roundTwoDecimal((square * height * 0.01 / 0.17) * 1.05),
-        price: roundTwoDecimal((square * height * 0.01 / 0.17) * 1.05 * MATERIALS_PRICE.CEMENT.price),
-        unit: 'т',
-        currency: 'грн',
-      },
-      {
-        key: '3',
-        name: MATERIALS_PRICE.FIBER.name,
-        amount: roundTwoDecimal(square / 500),
-        price: roundTwoDecimal((square / 500) * MATERIALS_PRICE.FIBER.price),
-        unit: 'т',
-        currency: 'грн',
-      },
-      {
-        key: '4',
-        name: MATERIALS_PRICE.SOFTENER.name,
-        amount: roundTwoDecimal(square / 300),
-        price: roundTwoDecimal((square / 300) * MATERIALS_PRICE.SOFTENER.price),
-        unit: 'т',
-        currency: 'грн',
-      },
-      {
-        key: '5',
-        name: MATERIALS_PRICE.DAMPER_TAPE.name,
-        amount: roundTwoDecimal(square / 300),
-        price: roundTwoDecimal(MATERIALS_PRICE.DAMPER_TAPE.price),// check
-        unit: 'т',
-        currency: 'грн',
-      },
-      {
-        key: '6',
-        name: 'Доставка',
-        amount: roundTwoDecimal((square / 100)),
-        price: roundTwoDecimal((square / 100) * 700),
-        unit: 'шт',
-        currency: 'грн',
-      },
-    ]
-    const materialPriceSum = materialPriceData.reduce((sum, item) => sum + item.price, 0)
+    const materialPriceSum = Object.values(MATERIALS_PRICE).reduce((sum, item) => sum + item.amount(square, height) * item.price, 0)
 
     setWorkPriceM2(workPrice)
     setWorkPriceSum(square * workPrice)
-    setMaterialTableData(materialPriceData)
     setMaterialPriceSum(roundTwoDecimal(materialPriceSum))
     setMaterialPriceM2(roundTwoDecimal(materialPriceSum / square))
   }, [square, height])
@@ -180,9 +115,7 @@ export const ScreedCalculator = () => {
       </Row>
     </div>,
     tab2: <div>
-      <Table columns={materialCalculationColumns} dataSource={materialPriceTableData} pagination={false}
-             showHeader={false} bordered
-             title={() => `Матеріали необхідні для вашої стяжки ${square} м2 товщиною ${height} см`} />
+      <MaterialAmountTable materialPriceObj={MATERIALS_PRICE} height={height} square={square}  />
       <br /><br />
       <MaterialPriceTable materialPriceObj={MATERIALS_PRICE} />
     </div>,
