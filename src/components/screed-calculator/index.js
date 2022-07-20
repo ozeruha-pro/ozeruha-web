@@ -83,7 +83,7 @@ export const ScreedCalculator = () => {
   const tabList = [
     {
       key: 'tab1',
-      tab: 'Калькулятор ціни',
+      tab: 'Ціна',
     },
     {
       key: 'tab2',
@@ -106,38 +106,51 @@ export const ScreedCalculator = () => {
           <Statistic
             title="Робота"
             value={workPriceSum}
+            formatter={value => value}
             suffix="грн"
-            style={{ margin: '16px 16px 16px 4px' }}
+            style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Робота за м2"
             value={workPriceM2}
+            formatter={value => value}
             suffix="грн/м2"
-            style={{ margin: '16px 16px 16px 4px' }}
+            style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Матеріали"
             value={materialPriceSum}
+            formatter={value => value}
             suffix="грн/м2"
-            style={{ margin: '16px 16px 16px 4px' }}
+            style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Матеріали за м2"
             value={materialPriceM2}
+            formatter={value => value}
             suffix="грн/м2"
-            style={{ margin: '16px 16px 16px 4px' }}
+            style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Ціна за роботу та матеріали за м2"
             value={roundTwoDecimal(materialPriceM2 + workPriceM2)}
+            formatter={value => value}
             suffix="грн/м2"
-            style={{ margin: '16px 16px 16px 4px' }}
+            style={{ margin: '16px 24px 16px 4px' }}
           />
         </Row>
       </div>
     ),
     tab2: (
       <div>
+        <InputNumbers
+          square={square}
+          setSquare={setSquare}
+          height={height}
+          setHeight={setHeight}
+        />
+        <br />
+        <br />
         <MaterialAmountTable
           materialPriceObj={MATERIALS_PRICE}
           height={height}

@@ -14,10 +14,10 @@ class ScreedServiceIndex extends React.Component {
   render() {
     return (
       <Layout location={this.props.location}>
-        <Seo title="Стяжка підлоги" />
+        <Seo title="Калькулятор стяжки підлоги" />
 
         <Container>
-          <PageHeader title="Стяжка підлоги" style={{ paddingLeft: 0 }} />
+          <PageHeader title="Калькулятор стяжки підлоги" style={{ paddingLeft: 0 }} />
 
           <ScreedCalculator />
 
