@@ -1,27 +1,35 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import * as styles from './navigation.module.css'
 
-const Navigation = () => (
-  <nav role="navigation" className={styles.container} aria-label="Main">
-    <Link to="/" className={styles.logoLink}>
-      <span className={styles.logo} />
-      <span className={styles.navigationItem}>Ozeruha Pro</span>
-    </Link>
-    <ul className={styles.navigation}>
-      <li className={styles.navigationItem}>
-        <Link to="/screed-service" activeClassName="active">
-          Стяжка підлоги
-        </Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="/blog/" activeClassName="active">
-          Блог
-        </Link>
-      </li>
-    </ul>
-  </nav>
-)
+const Navigation = () => {
+  const { file } = useStaticQuery(graphql`
+  query {
+    file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        fixed(width: 200, height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }`,
+  )
+
+  return (
+    <nav role='navigation' className={styles.container} aria-label='Main'>
+      <Link to='/' className={styles.logoLink}>
+        <Img fixed={file.childImageSharp.fixed} />
+      </Link>
+      <ul className={styles.navigation}>
+        <li className={styles.navigationItem}>
+          <Link to='/screed-service'>
+            Калькулятор стяжки
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  )
+}
 
 export default Navigation
