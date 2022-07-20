@@ -35,7 +35,9 @@ export const MaterialAmountTable = ({ square, height, materialPriceObj }) => {
 
   return (
     <Table
-      title={() => <b>{`Матеріали необхідні для вашої стяжки ${square} м2 товщиною ${height} см`}</b>}
+      title={() => (
+        <b>{`Матеріали необхідні для вашої стяжки ${square} м2 товщиною ${height} см`}</b>
+      )}
       columns={columns}
       dataSource={data}
       pagination={false}

@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "contentful-import": "^8.0.0",
-    "netlify-cli": "^10.0.0"
+    "netlify-cli": "^10.0.0",
+    "prettier": "^2.7.1"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -51,6 +52,7 @@
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
     "postinstall": "node ./bin/hello.js",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "setup": "node ./bin/setup.js",
     "netlify:login": "netlify login",
     "netlify:deploy": "netlify deploy -d public -p"

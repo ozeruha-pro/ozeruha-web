@@ -37,8 +37,10 @@ class BlogPostTemplate extends React.Component {
         <div className={styles.container}>
           <span className={styles.meta}>
             {post.author?.name} &middot;{' '}
-            <time dateTime={post.rawDate}>{new Date(post.publishDate).toLocaleDateString()}</time> –{' '}
-            {timeToRead} хвилини читання
+            <time dateTime={post.rawDate}>
+              {new Date(post.publishDate).toLocaleDateString()}
+            </time>{' '}
+            – {timeToRead} хвилини читання
           </span>
           <div className={styles.article}>
             <div className={styles.body}>

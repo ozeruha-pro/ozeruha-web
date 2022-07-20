@@ -1,30 +1,25 @@
 import React from 'react'
 
 //import { SmileOutlined, SolutionOutlined, PhoneOutlined, BuildOutlined } from '@ant-design/icons';
-import { PageHeader } from 'antd';
+import { PageHeader } from 'antd'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Container from '../components/container'
-import  { ScreedCalculator } from '../components/screed-calculator'
-
+import { ScreedCalculator } from '../components/screed-calculator'
 
 //const { Step } = Steps;
 
 class ScreedServiceIndex extends React.Component {
   render() {
-
     return (
       <Layout location={this.props.location}>
         <Seo title="Стяжка підлоги" />
 
         <Container>
-          <PageHeader
-            title="Стяжка підлоги"
-            style={{ paddingLeft: 0 }}
-          />
+          <PageHeader title="Стяжка підлоги" style={{ paddingLeft: 0 }} />
 
-          <ScreedCalculator/>
+          <ScreedCalculator />
 
           {/*<Steps>*/}
           {/*  <Step status="finish" title="Зв'язатися" description="Зателефонувати чи написати" icon={<PhoneOutlined />} />*/}

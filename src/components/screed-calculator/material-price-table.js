@@ -19,8 +19,7 @@ export const MaterialPriceTable = ({ materialPriceObj }) => {
   const data = Object.values(materialPriceObj).map((item, i) => ({
     key: String(i),
     name: item.name,
-    price:  `${item.price} грн/${item.unit}`,
-
+    price: `${item.price} грн/${item.unit}`,
   }))
   return (
     <Table

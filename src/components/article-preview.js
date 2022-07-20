@@ -25,7 +25,9 @@ const ArticlePreview = ({ posts }) => {
                 {post.description?.raw && renderRichText(post.description)}
               </div>
               <div className={styles.meta}>
-                <small className="meta">{new Date(post.publishDate).toLocaleDateString()}</small>
+                <small className="meta">
+                  {new Date(post.publishDate).toLocaleDateString()}
+                </small>
                 <Tags tags={post.tags} />
               </div>
             </li>

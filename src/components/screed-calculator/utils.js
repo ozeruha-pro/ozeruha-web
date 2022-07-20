@@ -1,1 +1,1 @@
-export const roundTwoDecimal = num => Math.round(num * 100) / 100
+export const roundTwoDecimal = (num) => Math.round(num * 100) / 100
