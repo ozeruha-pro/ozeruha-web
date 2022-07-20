@@ -7,17 +7,21 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Container from '../components/container'
 import { ScreedCalculator } from '../components/screed-calculator'
+import { getUaMonth } from '../utils'
 
 //const { Step } = Steps;
 
 class ScreedServiceIndex extends React.Component {
   render() {
+    const now = new Date();
+    const title = `Калькулятор cтяжки підлоги ${getUaMonth(now)}, ${now.getFullYear()}`
+
     return (
       <Layout location={this.props.location}>
-        <Seo title="Калькулятор стяжки підлоги" />
+        <Seo title={title} />
 
         <Container>
-          <PageHeader title="Калькулятор стяжки підлоги" style={{ paddingLeft: 0 }} />
+          <PageHeader title={title} style={{ paddingLeft: 0 }} />
 
           <ScreedCalculator />
 
