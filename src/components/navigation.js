@@ -8,7 +8,7 @@ const Navigation = () => {
     query {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 200, height: 50) {
+          fixed(width: 150, height: 45) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -19,7 +19,7 @@ const Navigation = () => {
   return (
     <nav role="navigation" className={styles.container} aria-label="Main">
       <Link to="/" className={styles.logoLink}>
-        <Img fixed={file.childImageSharp.fixed} />
+        <Img fixed={file.childImageSharp.fixed} loading="lazy" fadeIn={false} />
       </Link>
       <ul className={styles.navigation}>
         <li className={styles.navigationItem}>

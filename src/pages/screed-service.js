@@ -13,8 +13,10 @@ import { getUaMonth } from '../utils'
 
 class ScreedServiceIndex extends React.Component {
   render() {
-    const now = new Date();
-    const title = `Калькулятор cтяжки підлоги ${getUaMonth(now)}, ${now.getFullYear()}`
+    const now = new Date()
+    const title = `Калькулятор cтяжки підлоги ${getUaMonth(
+      now
+    )}, ${now.getFullYear()}`
 
     return (
       <Layout location={this.props.location}>

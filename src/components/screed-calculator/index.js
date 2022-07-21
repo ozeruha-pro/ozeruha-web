@@ -106,35 +106,35 @@ export const ScreedCalculator = () => {
           <Statistic
             title="Робота"
             value={workPriceSum}
-            formatter={value => value}
+            formatter={(value) => value}
             suffix="грн"
             style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Робота за м2"
             value={workPriceM2}
-            formatter={value => value}
+            formatter={(value) => value}
             suffix="грн/м2"
             style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Матеріали"
             value={materialPriceSum}
-            formatter={value => value}
+            formatter={(value) => value}
             suffix="грн/м2"
             style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Матеріали за м2"
             value={materialPriceM2}
-            formatter={value => value}
+            formatter={(value) => value}
             suffix="грн/м2"
             style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
             title="Ціна за роботу та матеріали за м2"
             value={roundTwoDecimal(materialPriceM2 + workPriceM2)}
-            formatter={value => value}
+            formatter={(value) => value}
             suffix="грн/м2"
             style={{ margin: '16px 24px 16px 4px' }}
           />
