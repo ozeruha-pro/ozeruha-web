@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {  Row, Statistic, Card } from 'antd'
+import { Row, Statistic, Card } from 'antd'
 import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
 import { roundTwoDecimal } from './utils'

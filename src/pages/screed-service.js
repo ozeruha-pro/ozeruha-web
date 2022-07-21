@@ -27,7 +27,7 @@ class ScreedServiceIndex extends React.Component {
           <PageHeader title={title} style={{ paddingLeft: 0 }} />
 
           <ScreedCalculator />
-          <Contact/>
+          <Contact />
 
           {/*<Steps>*/}
           {/*  <Step status="finish" title="Зв'язатися" description="Зателефонувати чи написати" icon={<PhoneOutlined />} />*/}
