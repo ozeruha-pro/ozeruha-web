@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 import { ScreedCalculator } from '../components/screed-calculator'
 import { getUaMonth } from '../utils'
+import Contact from '../components/contact'
 
 //const { Step } = Steps;
 
@@ -26,6 +27,7 @@ class ScreedServiceIndex extends React.Component {
           <PageHeader title={title} style={{ paddingLeft: 0 }} />
 
           <ScreedCalculator />
+          <Contact/>
 
           {/*<Steps>*/}
           {/*  <Step status="finish" title="Зв'язатися" description="Зателефонувати чи написати" icon={<PhoneOutlined />} />*/}

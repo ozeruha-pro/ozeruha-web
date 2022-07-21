@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Row, Statistic, Card } from 'antd'
+import {  Row, Statistic, Card } from 'antd'
 import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
 import { roundTwoDecimal } from './utils'
@@ -175,10 +175,10 @@ export const ScreedCalculator = () => {
       >
         {contentList[activeTabKey1]}
       </Card>
-      <br /> <br />
-      <Button type="primary" key="console">
-        Відправити розрахунки прорабу
-      </Button>
+      {/*<br /> <br />*/}
+      {/*<Button type="primary" key="console">*/}
+      {/*  Відправити розрахунки прорабу*/}
+      {/*</Button>*/}
       <br /> <br /> <br />
     </>
   )
