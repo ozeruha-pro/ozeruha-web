@@ -1,0 +1,39 @@
+.site-layout-header {
+    padding: 0 50px;
+}
+
+.site-layout-content-wrapper {
+   padding: 0 50px;
+}
+
+.site-layout-content {
+    min-height: 500px;
+    padding: 24px;
+    background: #fff;
+}
+
+.logo {
+    float: left;
+    width: 120px;
+    height: 35px;
+    margin: 0 24px 16px 0;
+}
+
+.ant-row-rtl .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+
+[data-theme="dark"] .site-layout-content {
+    background: #141414;
+}
+
+@media (max-width: 768px) {
+    .site-layout-content-wrapper {
+        padding: 0 20px;
+    }
+
+    .site-layout-header {
+        padding: 0 20px;
+    }
+}

@@ -1,23 +1,46 @@
 import React from 'react'
+import { Layout, Menu } from 'antd'
+import { CalculatorOutlined, PhoneOutlined } from '@ant-design/icons'
+import { Link } from 'gatsby'
+import './layout.css'
+import logoPng from '../images/logo_white.png'
 
-import './variables.css'
-import './global.css'
-import Seo from './seo'
-import Navigation from './navigation'
-import Footer from './footer'
-class Template extends React.Component {
-  render() {
-    const { children } = this.props
+const { Header, Content, Footer } = Layout
 
-    return (
-      <>
-        <Seo />
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-      </>
-    )
-  }
+const Template = ({ children }) => {
+  return (
+    <Layout className="layout">
+      <Header className="site-layout-header">
+        <div className="logo">
+          <Link to="/">
+            <img
+              src={logoPng}
+              style={{ width: '100%', height: '100%' }}
+              alt="Ozeruha Pro"
+            />
+          </Link>
+        </div>
+        <Menu theme="dark" mode="horizontal">
+          <Menu.Item key="screed-service" icon={<CalculatorOutlined />}>
+            <Link to="/screed-service">Калькулятор Стяжки</Link>
+          </Menu.Item>
+          <Menu.Item key="contact" icon={<PhoneOutlined />}>
+            <Link to="/contact">Контакти</Link>
+          </Menu.Item>
+        </Menu>
+      </Header>
+      <Content className="site-layout-content-wrapper">
+        {children}
+      </Content>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Ozeruha Pro ©{new Date().getFullYear()} Створено в Україні
+      </Footer>
+    </Layout>
+  )
 }
 
 export default Template
