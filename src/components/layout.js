@@ -26,7 +26,7 @@ const Template = ({ children }) => {
           defaultSelectedKeys={['screed-service']}
         >
           <Menu.Item key="screed-service" icon={<CalculatorOutlined />}>
-            <Link to="/screed-service">Калькулятор Стяжки</Link>
+            <Link to="/screed-service">Стяжка</Link>
           </Menu.Item>
           <Menu.Item key="contact" icon={<PhoneOutlined />}>
             <Link to="/contact">Контакти</Link>

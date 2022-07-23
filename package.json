@@ -10,7 +10,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
-    "antd": "^4.21.5",
+    "antd": "^4.21.7",
     "gatsby": "^4.0.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-antd": "^2.2.0",

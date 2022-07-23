@@ -28,10 +28,10 @@ class ScreedServiceIndex extends React.Component {
             {' '}
             <Link to="/">Головна</Link>
           </Breadcrumb.Item>
-          <Breadcrumb.Item>Калькулятор cтяжки підлоги</Breadcrumb.Item>
+          <Breadcrumb.Item>Стяжка підлоги</Breadcrumb.Item>
         </Breadcrumb>
         <div className="site-layout-content">
-          <PageHeader title={title} style={{ paddingLeft: 0 }} />
+          <PageHeader title="Калькулятор cтяжки" style={{ paddingLeft: 0 }} />
           <ScreedCalculator />
           <Contact />
         </div>
