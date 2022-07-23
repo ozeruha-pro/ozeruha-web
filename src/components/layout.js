@@ -23,7 +23,6 @@ const Template = ({ children }) => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['screed-service']}
         >
           <Menu.Item key="screed-service" icon={<CalculatorOutlined />}>
             <Link to="/screed-service">Стяжка</Link>

@@ -4,8 +4,7 @@
 }
 
 .image {
-  height: 61.8vh;
-  max-height: 560px;
+  max-height: 450px;
   width: 100%;
 }
 
@@ -20,4 +19,5 @@
 .content {
   margin: 0;
 }
+
 
