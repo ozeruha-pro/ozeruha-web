@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Row, Statistic, Card } from 'antd'
+import { Row, Statistic, Card, Alert } from 'antd'
 import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
 import { calcWorkPriceByM2, roundTwoDecimal } from './utils'
@@ -55,16 +55,18 @@ const BASE_PRICE_BY_M2 = 110
 const SMALL_OBJECT_PRICE = 9000
 
 export const ScreedCalculator = () => {
-  const [square, setSquare] = useState(118)
+  const [square, setSquare] = useState(100)
   const [height, setHeight] = useState(8)
 
   const [workPriceSum, setWorkPriceSum] = useState()
-  const [workPriceM2, setWorkPriceM2] = useState(calcWorkPriceByM2({
-    height,
-    square,
-    basePrice: BASE_PRICE_BY_M2,
-    smallObjectPrice: SMALL_OBJECT_PRICE,
-  }))
+  const [workPriceM2, setWorkPriceM2] = useState(
+    calcWorkPriceByM2({
+      height,
+      square,
+      basePrice: BASE_PRICE_BY_M2,
+      smallObjectPrice: SMALL_OBJECT_PRICE,
+    })
+  )
   const [materialPriceSum, setMaterialPriceSum] = useState()
   const [materialPriceM2, setMaterialPriceM2] = useState()
 
@@ -89,7 +91,9 @@ export const ScreedCalculator = () => {
     setWorkPriceM2(workPrice)
     setWorkPriceSum(roundTwoDecimal(square * workPrice))
     setMaterialPriceSum(roundTwoDecimal(materialPriceSum))
-    setMaterialPriceM2(roundTwoDecimal(materialPriceSum / square))
+    setMaterialPriceM2(
+      square > 0 ? roundTwoDecimal(materialPriceSum / square) : 0
+    )
   }, [square, height])
 
   const tabList = [
@@ -144,6 +148,12 @@ export const ScreedCalculator = () => {
             style={{ margin: '16px 24px 16px 4px' }}
           />
         </Row>
+        <Alert
+          message="На вартість також впливає дальність розташування об'єкту від Києва!"
+          type="warning"
+          showIcon
+          closable
+        />
       </div>
     ),
     tab2: (
