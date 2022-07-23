@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Row, Statistic, Card } from 'antd'
 import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
-import { roundTwoDecimal } from './utils'
+import { calcWorkPriceByM2, roundTwoDecimal } from './utils'
 import { MaterialAmountTable } from './material-amount-table'
 
 const MATERIALS_PRICE = {
@@ -51,13 +51,20 @@ const MATERIALS_PRICE = {
     amount: (square) => roundTwoDecimal(square / 100),
   },
 }
+const BASE_PRICE_BY_M2 = 110
+const SMALL_OBJECT_PRICE = 9000
 
 export const ScreedCalculator = () => {
   const [square, setSquare] = useState(118)
   const [height, setHeight] = useState(8)
 
   const [workPriceSum, setWorkPriceSum] = useState()
-  const [workPriceM2, setWorkPriceM2] = useState(110)
+  const [workPriceM2, setWorkPriceM2] = useState(calcWorkPriceByM2({
+    height,
+    square,
+    basePrice: BASE_PRICE_BY_M2,
+    smallObjectPrice: SMALL_OBJECT_PRICE,
+  }))
   const [materialPriceSum, setMaterialPriceSum] = useState()
   const [materialPriceM2, setMaterialPriceM2] = useState()
 
@@ -68,7 +75,12 @@ export const ScreedCalculator = () => {
   }
 
   useEffect(() => {
-    const workPrice = workPriceM2
+    const workPrice = calcWorkPriceByM2({
+      height,
+      square,
+      basePrice: BASE_PRICE_BY_M2,
+      smallObjectPrice: SMALL_OBJECT_PRICE,
+    })
     const materialPriceSum = Object.values(MATERIALS_PRICE).reduce(
       (sum, item) => sum + item.amount(square, height) * item.price,
       0
@@ -104,13 +116,6 @@ export const ScreedCalculator = () => {
         <br />
         <Row>
           <Statistic
-            title="Робота"
-            value={workPriceSum}
-            formatter={(value) => value}
-            suffix="грн"
-            style={{ margin: '16px 24px 16px 4px' }}
-          />
-          <Statistic
             title="Робота за м2"
             value={workPriceM2}
             formatter={(value) => value}
@@ -118,10 +123,10 @@ export const ScreedCalculator = () => {
             style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
-            title="Матеріали"
-            value={materialPriceSum}
+            title="Робота"
+            value={workPriceSum}
             formatter={(value) => value}
-            suffix="грн/м2"
+            suffix="грн"
             style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
@@ -132,8 +137,8 @@ export const ScreedCalculator = () => {
             style={{ margin: '16px 24px 16px 4px' }}
           />
           <Statistic
-            title="Ціна за роботу та матеріали за м2"
-            value={roundTwoDecimal(materialPriceM2 + workPriceM2)}
+            title="Матеріали"
+            value={materialPriceSum}
             formatter={(value) => value}
             suffix="грн/м2"
             style={{ margin: '16px 24px 16px 4px' }}
