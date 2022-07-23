@@ -10,6 +10,7 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Tags from '../components/tags'
 import * as styles from './blog-post.module.css'
+import { Breadcrumb } from 'antd'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -23,50 +24,61 @@ class BlogPostTemplate extends React.Component {
     const { minutes: timeToRead } = readingTime(plainTextBody)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <Seo
           title={post.title}
           description={plainTextDescription}
           image={`http:${post.heroImage.resize.src}`}
         />
-        <Hero
-          image={post.heroImage?.gatsbyImageData}
-          title={post.title}
-          content={post.description}
-        />
-        <div className={styles.container}>
-          <span className={styles.meta}>
-            {post.author?.name} &middot;{' '}
-            <time dateTime={post.rawDate}>
-              {new Date(post.publishDate).toLocaleDateString()}
-            </time>{' '}
-            – {timeToRead} хвилини читання
-          </span>
-          <div className={styles.article}>
-            <div className={styles.body}>
-              {post.body?.raw && renderRichText(post.body)}
+        <Breadcrumb style={{ margin: '16px 0' }}>
+          <Breadcrumb.Item>
+            <Link to="/">Головна</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link to="/blog">Блог</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>{post.title}</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="site-layout-content">
+          <Hero
+            image={post.heroImage?.gatsbyImageData}
+            title={post.title}
+            content={post.description}
+          />
+          <div className={styles.container}>
+            <span className={styles.meta}>
+              {post.author?.name} &middot;{' '}
+              <time dateTime={post.rawDate}>
+                {new Date(post.publishDate).toLocaleDateString()}
+              </time>{' '}
+              – {timeToRead} хвилини читання
+            </span>
+            <div className={styles.article}>
+              <div className={styles.body}>
+                {post.body?.raw && renderRichText(post.body)}
+              </div>
+              <Tags tags={post.tags} />
+              {(previous || next) && (
+                <nav>
+                  <ul className={styles.articleNavigation}>
+                    {previous && (
+                      <li>
+                        <Link to={`/blog/${previous.slug}`} rel="prev">
+                          ← {previous.title}
+                        </Link>
+                      </li>
+                    )}
+                    {next && (
+                      <li>
+                        <Link to={`/blog/${next.slug}`} rel="next">
+                          {next.title} →
+                        </Link>
+                      </li>
+                    )}
+                  </ul>
+                </nav>
+              )}
             </div>
-            <Tags tags={post.tags} />
-            {(previous || next) && (
-              <nav>
-                <ul className={styles.articleNavigation}>
-                  {previous && (
-                    <li>
-                      <Link to={`/blog/${previous.slug}`} rel="prev">
-                        ← {previous.title}
-                      </Link>
-                    </li>
-                  )}
-                  {next && (
-                    <li>
-                      <Link to={`/blog/${next.slug}`} rel="next">
-                        {next.title} →
-                      </Link>
-                    </li>
-                  )}
-                </ul>
-              </nav>
-            )}
           </div>
         </div>
       </Layout>

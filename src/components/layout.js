@@ -29,9 +29,7 @@ const Template = ({ children }) => {
           </Menu.Item>
         </Menu>
       </Header>
-      <Content className="site-layout-content-wrapper">
-        {children}
-      </Content>
+      <Content className="site-layout-content-wrapper">{children}</Content>
       <Footer
         style={{
           textAlign: 'center',

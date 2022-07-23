@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 //import { SmileOutlined, SolutionOutlined, PhoneOutlined, BuildOutlined } from '@ant-design/icons';
 import { Breadcrumb, PageHeader } from 'antd'
@@ -23,7 +24,10 @@ class ScreedServiceIndex extends React.Component {
         <Seo title={title} />
 
         <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Головна</Breadcrumb.Item>
+          <Breadcrumb.Item>
+            {' '}
+            <Link to="/">Головна</Link>
+          </Breadcrumb.Item>
           <Breadcrumb.Item>Калькулятор cтяжки підлоги</Breadcrumb.Item>
         </Breadcrumb>
         <div className="site-layout-content">

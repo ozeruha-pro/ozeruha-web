@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { Breadcrumb, PageHeader } from 'antd'
 
 import Layout from '../components/layout'
@@ -10,10 +11,13 @@ class ContactIndex extends React.Component {
     const title = 'Контакти'
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <Seo title={title} />
         <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Головна</Breadcrumb.Item>
+          <Breadcrumb.Item>
+            {' '}
+            <Link to="/">Головна</Link>
+          </Breadcrumb.Item>
           <Breadcrumb.Item>Контакти</Breadcrumb.Item>
         </Breadcrumb>
         <div className="site-layout-content">
