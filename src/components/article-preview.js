@@ -11,10 +11,10 @@ const ArticlePreview = ({ posts }) => {
   if (!Array.isArray(posts)) return null
 
   return (
-    <ul className={styles.articleList}>
+    <div className={styles.articleList}>
       {posts.map((post) => {
         return (
-          <li key={post.slug}>
+          <div key={post.slug} className={styles.card}>
             <Link to={`/blog/${post.slug}`} className={styles.link}>
               <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
               <h2 className={styles.title}>{post.title}</h2>
@@ -28,10 +28,10 @@ const ArticlePreview = ({ posts }) => {
               </small>
               <Tags tags={post.tags} />
             </div>
-          </li>
+          </div>
         )
       })}
-    </ul>
+    </div>
   )
 }
 
