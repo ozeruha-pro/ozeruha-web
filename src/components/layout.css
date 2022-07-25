@@ -24,6 +24,13 @@
     margin: 16px 0 16px 24px;
 }
 
+.menu-item-ozeruha {
+}
+
+.menu-item-ozeruha:hover {
+    background: none !important;
+}
+
 [data-theme="dark"] .site-layout-content {
     background: #141414;
 }

@@ -20,11 +20,19 @@ const Template = ({ children }) => {
             />
           </Link>
         </div>
-        <Menu theme="dark" mode="horizontal">
-          <Menu.Item key="screed-service" icon={<CalculatorOutlined />}>
+        <Menu theme="dark" mode="horizontal" selectable={false}>
+          <Menu.Item
+            key="screed-service"
+            icon={<CalculatorOutlined />}
+            className="menu-item-ozeruha"
+          >
             <Link to="/screed-service">Стяжка</Link>
           </Menu.Item>
-          <Menu.Item key="contact" icon={<PhoneOutlined />}>
+          <Menu.Item
+            key="contact"
+            icon={<PhoneOutlined />}
+            className="menu-item-ozeruha"
+          >
             <Link to="/contact">Контакти</Link>
           </Menu.Item>
         </Menu>

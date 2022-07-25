@@ -1,0 +1,20 @@
+.inputs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-wrapper {
+  margin: 8px 16px 8px 0;
+  width: 350px;
+}
+
+.input-number {
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .input-wrapper {
+    width: 100%;
+  }
+}
