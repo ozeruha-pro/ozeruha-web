@@ -42,6 +42,7 @@ export const MaterialAmountTable = ({ square, height, materialPriceObj }) => {
       dataSource={data}
       pagination={false}
       showHeader={false}
+      scroll={{ x: 400 }}
       bordered
     />
   )

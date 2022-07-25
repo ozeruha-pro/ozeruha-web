@@ -28,6 +28,7 @@ export const MaterialPriceTable = ({ materialPriceObj }) => {
       dataSource={data}
       pagination={false}
       showHeader={false}
+      scroll={{ x: 500 }}
       bordered
     />
   )
