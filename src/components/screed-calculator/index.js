@@ -117,7 +117,6 @@ export const ScreedCalculator = () => {
           setHeight={setHeight}
         />
         <br />
-        <br />
         <Row>
           <Statistic
             title="Робота за м2"
@@ -148,6 +147,7 @@ export const ScreedCalculator = () => {
             style={{ margin: '16px 24px 16px 4px' }}
           />
         </Row>
+        <br />
         <Alert
           message="На вартість також впливає дальність розташування об'єкту від Києва!"
           type="warning"
@@ -164,8 +164,6 @@ export const ScreedCalculator = () => {
           height={height}
           setHeight={setHeight}
         />
-        <br />
-        <br />
         <MaterialAmountTable
           materialPriceObj={MATERIALS_PRICE}
           height={height}
@@ -182,6 +180,9 @@ export const ScreedCalculator = () => {
     <>
       <Card
         style={{ width: '100%' }}
+        bodyStyle={{ padding: '24px 0' }}
+        headStyle={{ padding: '0' }}
+        bordered={false}
         tabList={tabList}
         activeTabKey={activeTabKey1}
         onTabChange={(key) => {
