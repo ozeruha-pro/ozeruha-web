@@ -195,7 +195,6 @@ export const ScreedCalculator = () => {
       {/*<Button type="primary" key="console">*/}
       {/*  Відправити розрахунки прорабу*/}
       {/*</Button>*/}
-      <br /> <br /> <br />
     </>
   )
 }
