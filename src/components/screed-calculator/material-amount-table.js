@@ -1,6 +1,5 @@
 import React from 'react'
 import { Table } from 'antd'
-import { roundTwoDecimal } from './utils'
 
 const columns = [
   {
@@ -15,9 +14,9 @@ const columns = [
     key: 'amount',
   },
   {
-    title: 'Ціна',
-    dataIndex: 'price',
-    key: 'price',
+    title: 'Примітки',
+    dataIndex: 'note',
+    key: 'note',
   },
 ]
 
@@ -27,9 +26,9 @@ export const MaterialAmountTable = ({ square, height, materialPriceObj }) => {
 
     return {
       key: String(i),
-      name: item.shortName,
-      amount: `${amount} ${item.amountUnit}`,
-      price: `${roundTwoDecimal(amount * item.price)} грн`,
+      name: item.name,
+      amount: amount ? `${amount} ${item.amountUnit}` : item.amountUnit,
+      note: item.note,
     }
   })
 
