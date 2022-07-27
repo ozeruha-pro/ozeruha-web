@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Row, Statistic, Card, Alert } from 'antd'
+import { useStaticQuery, graphql } from 'gatsby'
+import get from 'lodash/get'
 import { InputNumbers } from './input-numbers'
 import {
   calcWorkPriceByM2,
@@ -7,14 +9,21 @@ import {
   roundTwoDecimal,
 } from './utils'
 import { MaterialAmountTable } from './material-amount-table'
-import { useMaterialPriceMap } from './get-price'
-
-const BASE_PRICE_BY_M2 = 110
-const BASE_PRICE_BY_M2_WITH_MATERIALS = 230
-const SMALL_OBJECT_PRICE = 9000
 
 export const ScreedCalculator = () => {
-  const materialPrice = useMaterialPriceMap()
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulScreedPrice {
+        nodes {
+          workPriceByM2
+          workPriceWithMaterialsByM2
+          minWorkPrice
+        }
+      }
+    }
+  `)
+
+  const [screedPrice] = get(data, 'allContentfulScreedPrice.nodes')
 
   const [square, setSquare] = useState(100)
   const [height, setHeight] = useState(8)
@@ -24,8 +33,8 @@ export const ScreedCalculator = () => {
     calcWorkPriceByM2({
       height,
       square,
-      basePrice: BASE_PRICE_BY_M2,
-      smallObjectPrice: SMALL_OBJECT_PRICE,
+      basePrice: screedPrice.workPriceByM2,
+      smallObjectPrice: screedPrice.minWorkPrice,
     })
   )
   const [workPriceWithMaterialsSum, setWorkPriceWithMaterialsSum] = useState()
@@ -40,12 +49,12 @@ export const ScreedCalculator = () => {
     const workPrice = calcWorkPriceByM2({
       height,
       square,
-      basePrice: BASE_PRICE_BY_M2,
-      smallObjectPrice: SMALL_OBJECT_PRICE,
+      basePrice: screedPrice.workPriceByM2,
+      smallObjectPrice: screedPrice.minWorkPrice,
     })
     const workPriceWithMaterials = calcWorkWithMaterialsPriceByM2({
       height,
-      basePrice: BASE_PRICE_BY_M2_WITH_MATERIALS,
+      basePrice: screedPrice.workPriceWithMaterialsByM2,
     })
 
     setWorkPriceM2(workPrice)
@@ -116,11 +125,7 @@ export const ScreedCalculator = () => {
           height={height}
           setHeight={setHeight}
         />
-        <MaterialAmountTable
-          materialPriceObj={materialPrice}
-          height={height}
-          square={square}
-        />
+        <MaterialAmountTable height={height} square={square} />
         <br />
         <br />
         {/*<MaterialPriceTable materialPriceObj={materialPrice} />*/}

@@ -65,7 +65,6 @@ export const pageQuery = graphql`
         shortBio {
           raw
         }
-        title
         instagram
         heroImage: image {
           gatsbyImageData(
