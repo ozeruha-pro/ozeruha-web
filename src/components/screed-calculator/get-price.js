@@ -4,7 +4,6 @@ import keyBy from 'lodash/keyBy'
 import { roundTwoDecimal } from './utils'
 
 export const useMaterialPriceMap = () => {
-
   const data = useStaticQuery(graphql`
     query {
       allContentfulScreedPrice {
@@ -17,14 +16,14 @@ export const useMaterialPriceMap = () => {
           note
         }
       }
-     }
+    }
   `)
 
   const price = keyBy(get(data, 'allContentfulScreedPrice.nodes'), 'slug')
 
   return {
     SAND: {
-      name:  price.SAND.name,
+      name: price.SAND.name,
       shortName: price.SAND.shortName,
       price: price.SAND.price,
       unit: price.SAND.unit,
@@ -44,7 +43,7 @@ export const useMaterialPriceMap = () => {
         roundTwoDecimal(((square * height * 0.01) / 0.17) * 1.05),
     },
     FIBER: {
-      name:  price.FIBER.name,
+      name: price.FIBER.name,
       shortName: price.FIBER.shortName,
       price: price.FIBER.price,
       unit: price.FIBER.unit,
