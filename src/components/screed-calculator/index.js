@@ -4,57 +4,14 @@ import { MaterialPriceTable } from './material-price-table'
 import { InputNumbers } from './input-numbers'
 import { calcWorkPriceByM2, roundTwoDecimal } from './utils'
 import { MaterialAmountTable } from './material-amount-table'
+import { useMaterialPriceMap } from './get-price'
 
-const MATERIALS_PRICE = {
-  SAND: {
-    name: 'Пісок',
-    price: 400,
-    unit: 'т',
-    amountUnit: 'т',
-    amount: (square, height) =>
-      roundTwoDecimal(((square * height) / 100) * 1.6),
-  },
-  CEMENT: {
-    name: 'Цемент',
-    price: 122.3,
-    unit: 'шт',
-    amountUnit: 'т',
-    amount: (square, height) =>
-      roundTwoDecimal(((square * height * 0.01) / 0.17) * 1.05),
-  },
-  FIBER: {
-    name: 'Фібра',
-    price: 200,
-    unit: 'уп',
-    amountUnit: 'т',
-    amount: (square) => roundTwoDecimal(square / 500),
-  },
-  SOFTENER: {
-    name: 'Пластифікатор',
-    price: 350,
-    unit: 'кан',
-    amountUnit: 'т',
-    amount: (square) => roundTwoDecimal(square / 300),
-  },
-  DAMPER_TAPE: {
-    name: 'Демпферна лєнта',
-    price: 460,
-    unit: 'рул',
-    amountUnit: 'т',
-    amount: (square) => roundTwoDecimal(square / 300),
-  },
-  DELIVERY: {
-    name: 'Доставка',
-    price: 700,
-    unit: 'шт',
-    amountUnit: 'шт',
-    amount: (square) => roundTwoDecimal(square / 100),
-  },
-}
 const BASE_PRICE_BY_M2 = 110
 const SMALL_OBJECT_PRICE = 9000
 
 export const ScreedCalculator = () => {
+  const materialPrice = useMaterialPriceMap()
+
   const [square, setSquare] = useState(100)
   const [height, setHeight] = useState(8)
 
@@ -83,7 +40,7 @@ export const ScreedCalculator = () => {
       basePrice: BASE_PRICE_BY_M2,
       smallObjectPrice: SMALL_OBJECT_PRICE,
     })
-    const materialPriceSum = Object.values(MATERIALS_PRICE).reduce(
+    const materialPriceSum = Object.values(materialPrice).reduce(
       (sum, item) => sum + item.amount(square, height) * item.price,
       0
     )
@@ -165,13 +122,13 @@ export const ScreedCalculator = () => {
           setHeight={setHeight}
         />
         <MaterialAmountTable
-          materialPriceObj={MATERIALS_PRICE}
+          materialPriceObj={materialPrice}
           height={height}
           square={square}
         />
         <br />
         <br />
-        <MaterialPriceTable materialPriceObj={MATERIALS_PRICE} />
+        <MaterialPriceTable materialPriceObj={materialPrice} />
       </div>
     ),
   }

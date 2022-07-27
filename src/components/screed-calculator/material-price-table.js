@@ -13,6 +13,11 @@ const columns = [
     dataIndex: 'price',
     key: 'price',
   },
+  {
+    title: 'Примітки',
+    dataIndex: 'note',
+    key: 'note',
+  },
 ]
 
 export const MaterialPriceTable = ({ materialPriceObj }) => {
@@ -20,6 +25,7 @@ export const MaterialPriceTable = ({ materialPriceObj }) => {
     key: String(i),
     name: item.name,
     price: `${item.price} грн/${item.unit}`,
+    note: item.note,
   }))
   return (
     <Table
@@ -28,7 +34,7 @@ export const MaterialPriceTable = ({ materialPriceObj }) => {
       dataSource={data}
       pagination={false}
       showHeader={false}
-      scroll={{ x: 500 }}
+      scroll={{ x: 600 }}
       bordered
     />
   )

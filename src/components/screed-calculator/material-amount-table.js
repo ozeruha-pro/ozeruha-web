@@ -27,7 +27,7 @@ export const MaterialAmountTable = ({ square, height, materialPriceObj }) => {
 
     return {
       key: String(i),
-      name: item.name,
+      name: item.shortName,
       amount: `${amount} ${item.amountUnit}`,
       price: `${roundTwoDecimal(amount * item.price)} грн`,
     }
