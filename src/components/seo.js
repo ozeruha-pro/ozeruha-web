@@ -52,22 +52,6 @@ const Seo = ({ description = '', lang = 'en', meta = [], title, image }) => {
           property: `og:image`,
           content: image,
         },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
       ].concat(meta)}
     />
   )
