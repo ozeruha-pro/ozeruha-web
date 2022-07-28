@@ -35,7 +35,6 @@ function ScreedServiceIndex() {
 
   const [banner] = get(data, 'allContentfulBanner.nodes')
 
-  console.log(banner)
   const now = new Date()
   const title = `Калькулятор cтяжки підлоги онлайн ${getUaMonth(
     now
