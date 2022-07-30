@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Row, Statistic, Card, Alert } from 'antd'
+import { Row, Statistic, Card } from 'antd'
 import { useStaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { InputNumbers } from './input-numbers'
@@ -9,6 +9,7 @@ import {
   roundTwoDecimal,
 } from './utils'
 import { MaterialAmountTable } from './material-amount-table'
+import CalculatorForm from './form'
 
 export const ScreedCalculator = () => {
   const data = useStaticQuery(graphql`
@@ -108,13 +109,6 @@ export const ScreedCalculator = () => {
             style={{ margin: '16px 24px 16px 4px' }}
           />
         </Row>
-        <br />
-        <Alert
-          message="На вартість також впливає дальність розташування об'єкту від Києва!"
-          type="warning"
-          showIcon
-          closable
-        />
       </div>
     ),
     tab2: (
@@ -128,7 +122,6 @@ export const ScreedCalculator = () => {
         <MaterialAmountTable height={height} square={square} />
         <br />
         <br />
-        {/*<MaterialPriceTable materialPriceObj={materialPrice} />*/}
       </div>
     ),
   }
@@ -148,10 +141,12 @@ export const ScreedCalculator = () => {
       >
         {contentList[activeTabKey1]}
       </Card>
-      {/*<br /> <br />*/}
-      {/*<Button type="primary" key="console">*/}
-      {/*  Відправити розрахунки прорабу*/}
-      {/*</Button>*/}
+      <CalculatorForm
+        square={square}
+        height={height}
+        workPriceSum={workPriceSum}
+        workPriceWithMaterialsSum={workPriceWithMaterialsSum}
+      />
     </>
   )
 }

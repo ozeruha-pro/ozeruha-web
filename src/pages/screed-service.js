@@ -2,16 +2,21 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
 
-//import { SmileOutlined, SolutionOutlined, PhoneOutlined, BuildOutlined } from '@ant-design/icons';
-import { Breadcrumb, PageHeader } from 'antd'
+import {
+  SmileOutlined,
+  SolutionOutlined,
+  PhoneOutlined,
+  BuildOutlined,
+} from '@ant-design/icons'
+import { Breadcrumb, PageHeader, Steps, Typography, Divider } from 'antd'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import { ScreedCalculator } from '../components/screed-calculator'
 import { getUaMonth } from '../utils'
-import Contact from '../components/contact'
 
-//const { Step } = Steps;
+const { Step } = Steps
+const { Title } = Typography
 
 function ScreedServiceIndex() {
   const data = useStaticQuery(graphql`
@@ -58,15 +63,39 @@ function ScreedServiceIndex() {
       <div className="site-layout-content">
         <PageHeader title="Калькулятор cтяжки" style={{ paddingLeft: 0 }} />
         <ScreedCalculator />
-        <Contact />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Divider dashed>Шлях до успіху</Divider>
+        <br />
+        <Steps>
+          <Step
+            status="finish"
+            title="Планування"
+            description="Рахуємо об’єм рабіт та кількість матеріалів. Ціну робіт, кількість матеріалів ви можете розрахувати за допомогою мого онлайн калькулятора"
+            icon={<SolutionOutlined />}
+          />
+          <Step
+            status="finish"
+            title="Знаходимо виконавця"
+            description="Роботу та закупку матеріалів можна зробити самостійно, а можна довірити це професіоналам. Відправляйте заявку мені"
+            icon={<PhoneOutlined />}
+          />
+          <Step
+            status="finish"
+            title="Виконання"
+            description="Закупка та  доставка матеріалів. Виконання робіт в заплановані дати"
+            icon={<BuildOutlined />}
+          />
+          <Step
+            status="finish"
+            title="Готово"
+            description="Оплата по факту без додаткових платежів"
+            icon={<SmileOutlined />}
+          />
+        </Steps>
       </div>
-
-      {/*<Steps>*/}
-      {/*  <Step status="finish" title="Зв'язатися" description="Зателефонувати чи написати" icon={<PhoneOutlined />} />*/}
-      {/*  <Step status="finish" title="Розрахунок"  description="Рахуємо об'єми та вартість. Виїзд на об'єкт"  icon={<SolutionOutlined />} />*/}
-      {/*  <Step status="finish" title="Виконання"  description="В запланованні дати виконуємо роботи" icon={<BuildOutlined />} />*/}
-      {/*  <Step status="finish" title="Готово" description="Оплата по факту без додаткових платежів" icon={<SmileOutlined />} />*/}
-      {/*</Steps>*/}
     </Layout>
   )
 }
