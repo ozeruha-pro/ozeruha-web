@@ -43,7 +43,7 @@ const CalculatorForm = ({
       setLoading(true)
 
       await sendLead({
-        message: `Стяжка ${square}м², ${height}см. Робота ${workPriceSum}грн, ${workPriceWithMaterialsSum}грн. ${city}.`,
+        message: `Стяжка ${square}м², ${height}см. Робота ${workPriceSum}грн, робота з матеріалами ${workPriceWithMaterialsSum}грн. ${city}.`,
         phone,
         name,
         form: 'Калькулятор стяжки 👷🏻‍♂️',
