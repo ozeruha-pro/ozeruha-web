@@ -8,21 +8,18 @@
 .card {
   width: 100%;
   max-width: 400px;
-  margin: 8px;
+  margin: 12px 8px 16px;
   padding: 0;
 }
 
 .title {
   display: inline-block;
+  margin-top: 8px;
   border-bottom: 1.5px solid transparent;
 }
 
 .link {
   text-decoration: none;
-}
-
-.link:hover .title {
-  border-bottom-color: var(--primary);
 }
 
 .meta {
