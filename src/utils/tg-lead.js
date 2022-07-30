@@ -2,9 +2,9 @@
 
 const sendLead = ({ name, phone, message, form }) => {
   const http = new XMLHttpRequest()
-  const url = '://2299893.sashagol.web.hosting-test.net/post_lead_to_tg.php'
+  const url = 'https://dzubak.com.ua/post_ozeruha_lead_to_tg.php'
   const params = {
-    name,
+    name: name || '',
     phone,
     url: window.location.href,
     message,
