@@ -2,7 +2,7 @@
 
 const sendLead = ({ name, phone, message, form }) => {
   const http = new XMLHttpRequest()
-  const url = 'http://2299893.sashagol.web.hosting-test.net/post_lead_to_tg.php'
+  const url = '://2299893.sashagol.web.hosting-test.net/post_lead_to_tg.php'
   const params = {
     name,
     phone,
