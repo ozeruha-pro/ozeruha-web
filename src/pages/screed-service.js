@@ -8,7 +8,7 @@ import {
   PhoneOutlined,
   BuildOutlined,
 } from '@ant-design/icons'
-import { Breadcrumb, PageHeader, Steps, Typography, Divider } from 'antd'
+import { Breadcrumb, PageHeader, Steps, Divider } from 'antd'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
@@ -16,7 +16,6 @@ import { ScreedCalculator } from '../components/screed-calculator'
 import { getUaMonth } from '../utils'
 
 const { Step } = Steps
-const { Title } = Typography
 
 function ScreedServiceIndex() {
   const data = useStaticQuery(graphql`

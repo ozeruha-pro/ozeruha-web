@@ -2,6 +2,7 @@ import { Alert, Button, Modal, Input, Select } from 'antd'
 import { UserOutlined, PhoneOutlined } from '@ant-design/icons'
 import React, { useState } from 'react'
 import sendLead from '../../utils/tg-lead'
+import * as styles from './form.module.css'
 
 const { Option } = Select
 
@@ -42,7 +43,7 @@ const CalculatorForm = ({
       setLoading(true)
 
       await sendLead({
-        message: `${square} м², ${height} см, ${city}. Робота ${workPriceSum} грн`,
+        message: `Стяжка ${square}м², ${height}см. Робота ${workPriceSum}грн, ${workPriceWithMaterialsSum}грн. ${city}.`,
         phone,
         name,
         form: 'Калькулятор стяжки 👷🏻‍♂️',
@@ -56,7 +57,11 @@ const CalculatorForm = ({
 
   return (
     <>
-      <Button type="primary" onClick={() => setModalVisible(true)}>
+      <Button
+        type="primary"
+        onClick={() => setModalVisible(true)}
+        className={styles.button}
+      >
         Відправити заявку прорабу
       </Button>
       <Modal
