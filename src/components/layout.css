@@ -1,13 +1,19 @@
 .site-layout-header {
     padding: 0 50px;
+    width: 100%;
+    max-width: 1500px;
+    margin: auto;
 }
 
 .site-layout-content-wrapper {
-   padding: 0 50px;
+   padding: 20px 5px;
+   width: 100%;
+   max-width: 1500px;
+   margin: auto;
 }
 
 .site-layout-content {
-    min-height: 500px;
+    min-height: 90vh;
     padding: 24px;
     background: #fff;
 }
@@ -35,6 +41,13 @@
     background: #141414;
 }
 
+@media (max-width: 1500px) {
+    .site-layout-content-wrapper {
+        padding: 0 50px;
+    }
+}
+
+
 @media (max-width: 768px) {
     .site-layout-content-wrapper {
         padding: 0 20px;
@@ -44,3 +57,5 @@
         padding: 0 15px;
     }
 }
+
+
