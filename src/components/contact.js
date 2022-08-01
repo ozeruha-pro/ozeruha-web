@@ -7,6 +7,7 @@ import {
   PhoneOutlined,
   YoutubeOutlined,
 } from '@ant-design/icons'
+import { onPhoneClick } from '../utils'
 
 const contactLinkStyle = {
   display: 'flex',
@@ -47,7 +48,7 @@ const Contact = () => {
 
   return (
     <div>
-      <a style={contactLinkStyle} href={`tel:+${author.phone}`}>
+      <a style={contactLinkStyle} href={`tel:+${author.phone}`} onClick={() => onPhoneClick('contact block')}>
         <PhoneOutlined />
         &nbsp;{formatPhoneNumber(author.phone)}
       </a>
