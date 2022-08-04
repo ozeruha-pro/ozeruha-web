@@ -2,8 +2,8 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
 
-import { CaretRightOutlined } from '@ant-design/icons'
-import { Breadcrumb, PageHeader, Steps, Divider, Typography } from 'antd'
+import { InfoCircleOutlined } from '@ant-design/icons'
+import { Breadcrumb, PageHeader, Divider, Typography } from 'antd'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
@@ -73,24 +73,20 @@ function ScreedServiceIndex() {
             </Text>
           </Paragraph>
           <Paragraph>
-            <CaretRightOutlined /> Безкоштовна консультація та замір об'єкту.{' '}
+            <InfoCircleOutlined />&nbsp;Безкоштовна консультація та замір об'єкту.{' '}
             <Link to="/contact">Мої контакти &gt;</Link>
           </Paragraph>
           <Paragraph>
-            <CaretRightOutlined />
-            Доставка і розвантаження матеріалу
+            <InfoCircleOutlined />&nbsp;Доставка і розвантаження матеріалу
           </Paragraph>
           <Paragraph>
-            <CaretRightOutlined />
-            Залиття стяжки з допомогою пневмонагнітача
+            <InfoCircleOutlined />&nbsp;Залиття стяжки з допомогою пневмонагнітача
           </Paragraph>
           <Paragraph>
-            <CaretRightOutlined />
-            Вирівнювання та шліфування поверхні
+            <InfoCircleOutlined />&nbsp;Вирівнювання та шліфування поверхні
           </Paragraph>
           <Paragraph>
-            <CaretRightOutlined />
-            Прибирання будівельного сміття
+            <InfoCircleOutlined />&nbsp;Прибирання будівельного сміття
           </Paragraph>
         </div>
         <br />
