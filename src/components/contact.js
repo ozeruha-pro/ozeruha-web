@@ -48,7 +48,11 @@ const Contact = () => {
 
   return (
     <div>
-      <a style={contactLinkStyle} href={`tel:+${author.phone}`} onClick={() => onPhoneClick('contact block')}>
+      <a
+        style={contactLinkStyle}
+        href={`tel:+${author.phone}`}
+        onClick={() => onPhoneClick('contact block')}
+      >
         <PhoneOutlined />
         &nbsp;{formatPhoneNumber(author.phone)}
       </a>

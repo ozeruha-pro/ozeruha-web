@@ -2,20 +2,15 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
 
-import {
-  SmileOutlined,
-  SolutionOutlined,
-  PhoneOutlined,
-  BuildOutlined,
-} from '@ant-design/icons'
-import { Breadcrumb, PageHeader, Steps, Divider } from 'antd'
+import { CaretRightOutlined } from '@ant-design/icons'
+import { Breadcrumb, PageHeader, Steps, Divider, Typography } from 'antd'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import { ScreedCalculator } from '../components/screed-calculator'
 import { getUaMonth } from '../utils'
 
-const { Step } = Steps
+const { Paragraph, Text } = Typography
 
 function ScreedServiceIndex() {
   const data = useStaticQuery(graphql`
@@ -64,36 +59,41 @@ function ScreedServiceIndex() {
         <ScreedCalculator />
         <br />
         <br />
+        <Divider dashed />
+        <div>
+          <Paragraph>
+            <Text
+              strong
+              style={{
+                fontSize: 16,
+              }}
+            >
+              Пропоную послугу машинної напівсухої стяжки в м. Києві та
+              Київській області:
+            </Text>
+          </Paragraph>
+          <Paragraph>
+            <CaretRightOutlined /> Безкоштовна консультація та замір об'єкту.{' '}
+            <Link to="/contact">Мої контакти &gt;</Link>
+          </Paragraph>
+          <Paragraph>
+            <CaretRightOutlined />
+            Доставка і розвантаження матеріалу
+          </Paragraph>
+          <Paragraph>
+            <CaretRightOutlined />
+            Залиття стяжки з допомогою пневмонагнітача
+          </Paragraph>
+          <Paragraph>
+            <CaretRightOutlined />
+            Вирівнювання та шліфування поверхні
+          </Paragraph>
+          <Paragraph>
+            <CaretRightOutlined />
+            Прибирання будівельного сміття
+          </Paragraph>
+        </div>
         <br />
-        <br />
-        <Divider dashed>Шлях до успіху</Divider>
-        <br />
-        <Steps>
-          <Step
-            status="finish"
-            title="Планування"
-            description="Рахуємо об’єм робіт та кількість матеріалів. Ціну робіт, кількість матеріалів ви можете розрахувати за допомогою мого онлайн калькулятора"
-            icon={<SolutionOutlined />}
-          />
-          <Step
-            status="finish"
-            title="Знаходимо виконавця"
-            description="Роботу та закупку матеріалів можна зробити самостійно, а можна довірити це професіоналам. Відправляйте заявку мені"
-            icon={<PhoneOutlined />}
-          />
-          <Step
-            status="finish"
-            title="Виконання"
-            description="Закупка та  доставка матеріалів. Виконання робіт в заплановані дати"
-            icon={<BuildOutlined />}
-          />
-          <Step
-            status="finish"
-            title="Готово"
-            description="Оплата по факту без додаткових платежів"
-            icon={<SmileOutlined />}
-          />
-        </Steps>
       </div>
     </Layout>
   )

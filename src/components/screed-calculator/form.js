@@ -52,7 +52,7 @@ const CalculatorForm = ({
       setLoading(false)
       setModalVisible(false)
 
-      if(typeof window.gtag !== 'undefined') {
+      if (typeof window.gtag !== 'undefined') {
         window.gtag('event', 'form', {
           action: 'send',
           label: 'screed calculator order',
