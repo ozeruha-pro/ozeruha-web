@@ -11,7 +11,7 @@ export const InputNumbers = ({ square, setSquare, height, setHeight }) => {
           size="large"
           className={styles.inputNumber}
           addonBefore="Площа&nbsp;&nbsp;&nbsp;"
-          addonAfter="м2"
+          addonAfter="м²"
           value={square}
           onChange={setSquare}
         />

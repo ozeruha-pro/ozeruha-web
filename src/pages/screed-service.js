@@ -65,7 +65,7 @@ function ScreedServiceIndex() {
           >
             {`Краща ціна на ${getUaMonth(
               now
-            )}, ${now.getFullYear()} року`}
+            )} ${now.getFullYear()} року`}
           </Text>
         </Paragraph>
         <ScreedCalculator />
