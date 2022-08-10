@@ -1,0 +1,22 @@
+.price-items {
+    display: flex;
+}
+
+.price-item {
+    margin: 16px 24px 16px 4px;
+}
+
+@media (max-width: 420px) {
+    .price-item {
+        margin: 16px 14px 16px 0;
+    }
+
+    .price-items {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .price-item:nth-child(2n) {
+        margin: 16px 0 16px 0;
+    }
+}

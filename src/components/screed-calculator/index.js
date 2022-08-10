@@ -11,6 +11,8 @@ import {
 import { MaterialAmountTable } from './material-amount-table'
 import CalculatorForm from './form'
 
+import * as styles from './index.module.css'
+
 export const ScreedCalculator = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -86,27 +88,27 @@ export const ScreedCalculator = () => {
           setHeight={setHeight}
         />
         <br />
-        <Row>
+        <Row className={styles.priceItems}>
           <Statistic
-            title="Робота за м2"
+            title="Робота за м²"
             value={workPriceM2}
             formatter={(value) => value}
-            suffix="грн/м2"
-            style={{ margin: '16px 24px 16px 4px' }}
+            suffix="грн/м²"
+            className={styles.priceItem}
           />
           <Statistic
             title="Робота"
             value={workPriceSum}
             formatter={(value) => value}
             suffix="грн"
-            style={{ margin: '16px 24px 16px 4px' }}
+            className={styles.priceItem}
           />
           <Statistic
             title="Робота з матеріалами"
             value={workPriceWithMaterialsSum}
             formatter={(value) => value}
-            suffix="грн/м2"
-            style={{ margin: '16px 24px 16px 4px' }}
+            suffix="грн/м²"
+            className={styles.priceItem}
           />
         </Row>
       </div>
