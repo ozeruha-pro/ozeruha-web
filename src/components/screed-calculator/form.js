@@ -1,10 +1,12 @@
-import { Alert, Button, Modal, Input, Select } from 'antd'
+import { Alert, Button, Modal, Input, Select, Typography } from 'antd'
 import { UserOutlined, PhoneOutlined } from '@ant-design/icons'
 import React, { useState } from 'react'
 import sendLead from '../../utils/tg-lead'
 import * as styles from './form.module.css'
+import { getUaMonth } from '../../utils'
 
 const { Option } = Select
+const { Paragraph, Text } = Typography
 
 const CITIES = {
   KYIV: 'м. Київ',
@@ -135,6 +137,17 @@ const CalculatorForm = ({
         />
         <br />
         <br />
+        <Paragraph>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: 16,
+            }}
+          >
+            {`Відправляйте заявку! Безплатно проконсультую, як якісніше та економніше залити стяжку площею ${square}м², висотою ${height}см`}
+          </Text>
+        </Paragraph>
+
         {city !== 'м. Київ' && (
           <Alert
             message="На вартість також впливає дальність розташування об'єкту від Києва!"
