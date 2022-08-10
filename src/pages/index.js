@@ -11,7 +11,6 @@ import { Breadcrumb } from 'antd'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
     const [author] = get(this, 'props.data.allContentfulPerson.nodes')
 
     return (

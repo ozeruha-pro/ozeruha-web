@@ -56,6 +56,18 @@ function ScreedServiceIndex() {
       </Breadcrumb>
       <div className="site-layout-content">
         <PageHeader title="Калькулятор cтяжки" style={{ paddingLeft: 0 }} />
+        <Paragraph>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: 16,
+            }}
+          >
+            {`Краща ціна на ${getUaMonth(
+              now
+            )}, ${now.getFullYear()} року`}
+          </Text>
+        </Paragraph>
         <ScreedCalculator />
         <br />
         <br />
