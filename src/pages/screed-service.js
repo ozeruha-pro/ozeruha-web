@@ -52,7 +52,7 @@ function ScreedServiceIndex() {
           {' '}
           <Link to="/">Головна</Link>
         </Breadcrumb.Item>
-        <Breadcrumb.Item>Стяжка підлоги</Breadcrumb.Item>
+        <Breadcrumb.Item>Стяжка підлоги напівсуха</Breadcrumb.Item>
       </Breadcrumb>
       <div className="site-layout-content">
         <PageHeader title="Калькулятор cтяжки" style={{ paddingLeft: 0 }} />
