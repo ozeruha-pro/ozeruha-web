@@ -63,9 +63,7 @@ function ScreedServiceIndex() {
               fontSize: 16,
             }}
           >
-            {`Краща ціна на ${getUaMonth(
-              now
-            )} ${now.getFullYear()} року`}
+            {`Краща ціна на ${getUaMonth(now)} ${now.getFullYear()} року`}
           </Text>
         </Paragraph>
         <ScreedCalculator />
@@ -85,20 +83,30 @@ function ScreedServiceIndex() {
             </Text>
           </Paragraph>
           <Paragraph>
-            &nbsp;<CaretRightOutlined />&nbsp;Безкоштовна консультація та замір об'єкту.{' '}
+            &nbsp;
+            <CaretRightOutlined />
+            &nbsp;Безкоштовна консультація та замір об'єкту.{' '}
             <Link to="/contact">Мої контакти &gt;</Link>
           </Paragraph>
           <Paragraph>
-            &nbsp;<CaretRightOutlined />&nbsp;Доставка і розвантаження матеріалу
+            &nbsp;
+            <CaretRightOutlined />
+            &nbsp;Доставка і розвантаження матеріалу
           </Paragraph>
           <Paragraph>
-            &nbsp;<CaretRightOutlined />&nbsp;Залиття стяжки з допомогою пневмонагнітача
+            &nbsp;
+            <CaretRightOutlined />
+            &nbsp;Залиття стяжки з допомогою пневмонагнітача
           </Paragraph>
           <Paragraph>
-            &nbsp;<CaretRightOutlined />&nbsp;Вирівнювання та шліфування поверхні
+            &nbsp;
+            <CaretRightOutlined />
+            &nbsp;Вирівнювання та шліфування поверхні
           </Paragraph>
           <Paragraph>
-            &nbsp;<CaretRightOutlined />&nbsp;Прибирання будівельного сміття
+            &nbsp;
+            <CaretRightOutlined />
+            &nbsp;Прибирання будівельного сміття
           </Paragraph>
         </div>
         <br />

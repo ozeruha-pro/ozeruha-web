@@ -103,9 +103,10 @@ export const ScreedCalculator = () => {
             suffix="грн"
             className={styles.priceItem}
           />
+
           <Statistic
             title="Робота з матеріалами"
-            value={workPriceWithMaterialsSum}
+            value={square >= 100 ? workPriceWithMaterialsSum : '—'}
             formatter={(value) => value}
             suffix="грн/м²"
             className={styles.priceItem}

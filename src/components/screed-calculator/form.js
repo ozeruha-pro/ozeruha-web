@@ -75,7 +75,7 @@ const CalculatorForm = ({
         Відправити заявку прорабу
       </Button>
       <Modal
-        title={`Ваша стяжка ${square} м², ${height} см`}
+        title={`Ваша напівсуха стяжка ${square} м², ${height} см`}
         centered
         visible={modalVisible}
         onOk={handleOk}
@@ -127,14 +127,18 @@ const CalculatorForm = ({
         <br />
         <br />
         <Input prefix="₴" value={workPriceSum} suffix="робота" disabled />
-        <br />
-        <br />
-        <Input
-          prefix="₴"
-          value={workPriceWithMaterialsSum}
-          suffix="робота з матеріалами"
-          disabled
-        />
+        {square >= 100 && (
+          <React.Fragment>
+            <br />
+            <br />
+            <Input
+              prefix="₴"
+              value={workPriceWithMaterialsSum}
+              suffix="робота з матеріалами"
+              disabled
+            />
+          </React.Fragment>
+        )}
         <br />
         <br />
         <Paragraph>
