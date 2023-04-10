@@ -6,7 +6,6 @@ import { InputNumbers } from './input-numbers'
 import {
   calcWorkPriceByM2,
   calcWorkWithMaterialsPriceByM2,
-  roundTwoDecimal,
 } from './utils'
 import { MaterialAmountTable } from './material-amount-table'
 import CalculatorForm from './form'
@@ -61,9 +60,9 @@ export const ScreedCalculator = () => {
     })
 
     setWorkPriceM2(workPrice)
-    setWorkPriceSum(roundTwoDecimal(square * workPrice))
+    setWorkPriceSum(Math.ceil(square * workPrice))
     setWorkPriceWithMaterialsSum(
-      roundTwoDecimal(square * workPriceWithMaterials)
+      Math.ceil(square * workPriceWithMaterials)
     )
   }, [square, height])
 
