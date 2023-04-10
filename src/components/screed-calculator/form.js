@@ -68,9 +68,10 @@ const CalculatorForm = ({
     <>
       <Button
         type="primary"
+        size="large"
+        shape="round"
         icon={<SendOutlined />}
         onClick={() => setModalVisible(true)}
-        className={styles.button}
       >
         Відправити заявку прорабу
       </Button>
